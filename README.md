@@ -64,7 +64,7 @@ source ./.venv/bin/activate
 ### 4. Instalar Dependências
 Crie um arquivo chamado requirements.txt na raiz do projeto com o seguinte conteúdo:
 
-```
+```bash
 langchain
 langchain-community
 langchain-openai
@@ -74,11 +74,12 @@ python-dotenv
 sentence-transformers
 ```
 Agora, instale as dependências:
+
 ```bash
 pip install -r requirements.txt
 ```
 
-###5. Configurar o LM Studio
+### 5. Configurar o LM Studio
 1. Abra o LM Studio.
 
 2. Na barra lateral esquerda, navegue até a seção **"Home"** (ícone de casa) ou **"Discover"** (ícone de lupa) para encontrar e baixar um modelo de sua preferência (ex: `gemma-2b-it` ou um modelo da série Llama).
@@ -86,3 +87,48 @@ pip install -r requirements.txt
 3. Vá para a aba **"Local Inference Server"** (geralmente a quarta aba, ícone de terminal com "localhost").
 
 4. Clique em **"Start Server"**. Certifique-se de que o servidor está rodando na porta `1234` (esta é a porta padrão e configurada no projeto).
+
+### 6. Configurar Variáveis de Ambiente
+Crie um arquivo chamado .env na raiz do seu projeto (Paper-Pal-RAG/) e adicione as seguintes linhas:
+
+```bash
+# .env
+LM_STUDIO_API_BASE=http://localhost:1234/v1
+LM_STUDIO_MODEL_NAME=lm_studio_default # Ou o nome exato do modelo que você carregou no LM Studio, ex: gemma-2-2b-it
+```
+
+### 7. Adicionar seus Artigos
+Crie uma pasta chamada `articles` dentro de `data/` na raiz do seu projeto. Coloque seus arquivos **PDFs** e **TXTs** dentro de `Paper-Pal-RAG/data/articles/.`
+
+### 8. Estrutura do Projeto (Certifique-se de que os __init__.py existem!)
+Para que o Python reconheça a estrutura de módulos corretamente, verifique se arquivos `__init__.py` (que podem ser vazios) existem nas seguintes pastas:
+
+```bash
+Paper-Pal-RAG/
+├── src/
+│   ├── __init__.py          <- DEVE EXISTIR
+│   ├── core/
+│   │   ├── __init__.py      <- DEVE EXISTIR
+│   ├── data/
+│   │   ├── __init__.py      <- DEVE EXISTIR
+│   ├── domain/
+│   │   ├── __init__.py      <- DEVE EXISTIR
+│   ├── infrastructure/
+│   │   ├── __init__.py      <- DEVE EXISTIR
+│   ├── presentation/
+│   │   ├── __init__.py      <- DEVE EXISTIR
+│   ├── main.py
+├── data/
+│   └── articles/
+│       └── seu_artigo.pdf
+│       └── suas_notas.txt
+├── .env
+├── requirements.txt
+└── README.md
+```
+### 9. Executar o Chatbot
+Com o ambiente virtual ativado e o LM Studio rodando, execute o projeto a partir da raiz do seu diretório:
+
+```bash
+python -m src.main
+```
