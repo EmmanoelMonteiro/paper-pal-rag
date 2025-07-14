@@ -132,3 +132,33 @@ Com o ambiente virtual ativado e o LM Studio rodando, execute o projeto a partir
 ```bash
 python -m src.main
 ```
+
+## 🤝 Como Usar o Chatbot
+
+Ao iniciar, você verá uma mensagem de boas-vindas. Siga os comandos:
+
+1. **Ingerir Documentos:** Digite `ingest` e pressione Enter. O sistema carregará e processará todos os artigos na pasta `data/articles/`, criando ou atualizando o banco de dados vetorial (`data/chroma_db`).
+
+```bash
+Você (ou digite um comando): ingest
+```
+
+2. **Fazer Perguntas:** Após a ingestão, digite sua pergunta sobre o conteúdo dos artigos.
+
+```bash
+Você (ou digite um comando): Qual a metodologia principal do estudo sobre IA?
+```
+
+3. **Visualizar Contexto:** A resposta incluirá a geração da LLM e os trechos exatos dos documentos (com seus IDs e nome de arquivo) que foram usados como contexto para a resposta.
+
+4. **Limpar Documentos:** Para remover todos os documentos do banco de dados, digite `clear`.
+
+```bash
+Você (ou digite um comando): clear
+```
+
+5. **Sair:** Digite `exit` ou `quit` para encerrar o chatbot.
+
+Sinta-se à vontade para explorar, modificar e contribuir para este projeto. Sua colaboração é bem-vinda!
+
+Qualquer dúvida ou problema, sinta-se à vontade para abrir uma issue no repositório.
