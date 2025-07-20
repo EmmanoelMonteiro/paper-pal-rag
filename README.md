@@ -37,7 +37,7 @@ Siga os passos abaixo para configurar e rodar o Paper-Pal-RAG no seu ambiente lo
 ### 1. Clonar o Repositório
 
 ```bash
-git clone [https://github.com/seu-usuario/Paper-Pal-RAG.git](https://github.com/seu-usuario/Paper-Pal-RAG.git)
+git clone https://github.com/EmmanoelMonteiro/paper-pal-rag.git
 cd Paper-Pal-RAG
 ```
 
